@@ -31,7 +31,7 @@ open class JRefreshStateHeader: JRefreshHeader {
     }()
     
     ///所有状态对应的文字
-    lazy var stateTitles: Dictionary = [:]
+    lazy var stateTitles = [Int: String]()
     
     ///key的处理
     override var lastUpdatedTimeKey: String? {
@@ -88,7 +88,7 @@ open class JRefreshStateHeader: JRefreshHeader {
             super.state = newState
             
              // 设置状态文字
-            stateLabel.text = stateTitles[newState.hashValue] as? String
+            stateLabel.text = stateTitles[newState.hashValue]
             // 重新设置key（重新显示时间）
             lastUpdatedTimeKey = JRefreshHead.lastUpdateTimeKey
         }
@@ -101,7 +101,7 @@ open class JRefreshStateHeader: JRefreshHeader {
     public func setTitle(_ title: String?, _ state: JRefreshState) {
         guard let title = title else { return }
         stateTitles[state.hashValue] = title
-        stateLabel.text = stateTitles[state.hashValue] as? String
+        stateLabel.text = stateTitles[state.hashValue]
     }
 }
 

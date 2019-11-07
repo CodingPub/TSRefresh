@@ -11,7 +11,7 @@ import UIKit
 
 public extension UIScrollView {
 
-    public var inset: UIEdgeInsets {
+    var inset: UIEdgeInsets {
         get {
             if #available(iOS 11.0, *) {
                 return self.adjustedContentInset
@@ -21,7 +21,7 @@ public extension UIScrollView {
         }
     }
     
-    public var insetTop: CGFloat {
+    var insetTop: CGFloat {
         set(newTop) {
             var inset = self.contentInset
             inset.top = newTop
@@ -35,7 +35,7 @@ public extension UIScrollView {
         }
     }
     
-    public var insetRight: CGFloat {
+    var insetRight: CGFloat {
         set(newRight) {
             var inset = self.contentInset
             inset.right = newRight
@@ -49,7 +49,7 @@ public extension UIScrollView {
         }
     }
     
-    public var insetBottom: CGFloat {
+    var insetBottom: CGFloat {
         set(newBottom) {
             var inset = self.contentInset
             inset.bottom = newBottom
@@ -63,7 +63,7 @@ public extension UIScrollView {
         }
     }
     
-    public var insetLeft: CGFloat {
+    var insetLeft: CGFloat {
         set(newLeft) {
             var inset = self.contentInset
             inset.left = newLeft
@@ -77,7 +77,7 @@ public extension UIScrollView {
         }
     }
     
-    public var offsetX: CGFloat {
+    var offsetX: CGFloat {
         set(newOffsetX) {
             var offset = self.contentOffset
             offset.x = newOffsetX
@@ -88,7 +88,7 @@ public extension UIScrollView {
         }
     }
     
-    public var offsetY: CGFloat {
+    var offsetY: CGFloat {
         set(newOffsetY) {
             var offset = self.contentOffset
             offset.y = newOffsetY
@@ -99,7 +99,7 @@ public extension UIScrollView {
         }
     }
     
-    public var contentW: CGFloat {
+    var contentW: CGFloat {
         set(newContentW) {
             var size = self.contentSize
             size.width = newContentW
@@ -109,7 +109,7 @@ public extension UIScrollView {
             return self.contentSize.width
         }
     }
-    public var contentH: CGFloat {
+    var contentH: CGFloat {
         set(newContentH) {
             var size = self.contentSize
             size.height = newContentH

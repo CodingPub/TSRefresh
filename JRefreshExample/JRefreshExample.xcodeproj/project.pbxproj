@@ -219,6 +219,7 @@
 				TargetAttributes = {
 					9B27AF88212EBD6400C1F04D = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1110;
 					};
 				};
 			};
@@ -426,7 +427,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ljb.JRefreshExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -444,7 +445,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ljb.JRefreshExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

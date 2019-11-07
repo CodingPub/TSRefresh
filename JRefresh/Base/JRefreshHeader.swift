@@ -11,7 +11,7 @@ import UIKit
 open class JRefreshHeader: JRefreshComponent {
     
     //MARK: - 创建header方法
-    public class func headerWithRefreshingBlock(_ refreshingBlock: Block) -> JRefreshHeader {
+    public class func headerWithRefreshingBlock(_ refreshingBlock: @escaping Block) -> JRefreshHeader {
         
         let cmp = self.init()
         cmp.refreshingBlock = refreshingBlock

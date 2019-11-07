@@ -22,7 +22,7 @@ class JDIYHerader: JRefreshHeader {
         return s
     }()
     lazy var loading: UIActivityIndicatorView = {
-        let loading = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        let loading = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
         return loading
     }()
     

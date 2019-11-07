@@ -15,13 +15,13 @@ open class JRefreshGifHeader: JRefreshStateHeader {
         return gifView
     }()
     
-    lazy var stateImages: Dictionary = [:]
-    lazy var stateDurations: Dictionary = [:]
+    lazy var stateImages = [Int: [UIImage]]()
+    lazy var stateDurations = [Int: TimeInterval]()
     
     override open var pullingPercent: CGFloat? {
         set(newPullingPercent) {
             super.pullingPercent = newPullingPercent
-            let image = stateImages[JRefreshState.Idle.hashValue] as? Array<UIImage>
+            let image = stateImages[JRefreshState.Idle.hashValue]
             guard let images = image, images.count != 0, state == .Idle else {return}
             
             // 停止动画
@@ -49,14 +49,14 @@ open class JRefreshGifHeader: JRefreshStateHeader {
             
             // 根据状态做事情
             if newState == .Pulling || newState == .Refreshing {
-                let image = stateImages[newState.hashValue] as? Array<UIImage>
+                let image = stateImages[newState.hashValue]
                 guard let images = image, images.count != 0 else {return}
                 gifView.stopAnimating()
                 if images.count == 1 { //单张图片
                     gifView.image = images.last
                 } else {
                     gifView.animationImages = images
-                    gifView.animationDuration = stateDurations[newState.hashValue] as? TimeInterval ?? 0.0
+                    gifView.animationDuration = stateDurations[newState.hashValue] ?? 0.0
                     gifView.startAnimating()
                 }
             } else if newState == .Idle {

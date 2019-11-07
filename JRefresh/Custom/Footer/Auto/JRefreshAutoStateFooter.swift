@@ -21,7 +21,7 @@ open class JRefreshAutoStateFooter: JRefreshAutoFooter {
     ///隐藏刷新状态的文字
     public var refreshingTitleHidden: Bool = false
     ///所有状态对应的文字
-    lazy var stateTitles: Dictionary = [:]
+    lazy var stateTitles = [Int: String]()
     
     override open var state: JRefreshState {
         set(newState) {
@@ -35,7 +35,7 @@ open class JRefreshAutoStateFooter: JRefreshAutoFooter {
             if refreshingTitleHidden && newState == .Refreshing {
                 stateLabel.text = nil
             } else {
-                stateLabel.text = stateTitles[newState.hashValue] as? String
+                stateLabel.text = stateTitles[newState.hashValue]
             }
         }
         get {
@@ -48,7 +48,7 @@ extension JRefreshAutoStateFooter {
     public func setTitle(_ title: String?, _ state: JRefreshState) {
         guard let title = title else { return }
         stateTitles[state.hashValue] = title
-        stateLabel.text = stateTitles[state.hashValue] as? String
+        stateLabel.text = stateTitles[state.hashValue]
     }
 }
 //MARK: - 重写父类的方法
