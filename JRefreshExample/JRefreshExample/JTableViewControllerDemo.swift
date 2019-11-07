@@ -9,7 +9,6 @@
 import UIKit
 
 class JTableViewControllerDemo: UITableViewController {
-
     var demoIndex: IndexPath = IndexPath(row: 0, section: 0)
     var count = 10
     override func viewDidLoad() {
@@ -17,78 +16,89 @@ class JTableViewControllerDemo: UITableViewController {
         switch demoIndex.section {
         case 0:
             switch demoIndex.row {
-            //MARK: - 默认下拉(只有刷新时间、状态)
+                // MARK: - 默认下拉(只有刷新时间、状态)
+
             case 0:
-                tableView.header = JRefreshStateHeader.headerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                tableView.header = JRefreshStateHeader.headerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
                         self.tableView.reloadData()
                         self.tableView.header?.endRefreshing()
-                    })
-                })
+                    }
+                }
                 tableView.header?.beginRefreshing()
-            //MARK: - 下拉带菊花、箭头
+
+                // MARK: - 下拉带菊花、箭头
+
             case 1:
-                tableView.header = JRefreshNormalHeader.headerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                tableView.header = JRefreshNormalHeader.headerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
                         self.tableView.reloadData()
                         self.tableView.header?.endRefreshing()
-                    })
-                })
+                    }
+                }
                 tableView.header?.beginRefreshing()
-            //MARK: - 隐藏时间
+
+                // MARK: - 隐藏时间
+
             case 2:
-                let header = JRefreshNormalHeader.headerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                let header = JRefreshNormalHeader.headerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
                         self.tableView.reloadData()
                         self.tableView.header?.endRefreshing()
-                    })
-                })
+                    }
+                }
                 // 设置自动切换透明度(在导航栏下面自动隐藏)
                 header.automaticallyChangeAlpha = true
                 (header as! JRefreshNormalHeader).lastUpdatedTimeLabel.isHidden = true
                 header.beginRefreshing()
                 tableView.header = header
-            //MARK: - GIF 刷新
+
+                // MARK: - GIF 刷新
+
             case 3:
-                tableView.header = JChiBaoZiHeader.headerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                tableView.header = JChiBaoZiHeader.headerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
                         self.tableView.reloadData()
                         self.tableView.header?.endRefreshing()
-                    })
-                })
+                    }
+                }
                 tableView.header?.beginRefreshing()
-            //MARK: - 隐藏时间和状态
+
+                // MARK: - 隐藏时间和状态
+
             case 4:
-                let header = JChiBaoZiHeader.headerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                let header = JChiBaoZiHeader.headerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
                         self.tableView.reloadData()
                         self.tableView.header?.endRefreshing()
-                    })
-                })
+                    }
+                }
                 (header as! JChiBaoZiHeader).stateLabel.isHidden = true
                 (header as! JChiBaoZiHeader).lastUpdatedTimeLabel.isHidden = true
                 header.beginRefreshing()
                 tableView.header = header
-            //MARK: - 下拉刷新 自定义文字
+
+                // MARK: - 下拉刷新 自定义文字
+
             case 5:
-                let header = JRefreshNormalHeader.headerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                let header = JRefreshNormalHeader.headerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
                         self.tableView.reloadData()
                         self.tableView.header?.endRefreshing()
-                    })
-                })
+                    }
+                }
                 // 设置文字
                 (header as! JRefreshNormalHeader).setTitle("lee", .Idle)
                 (header as! JRefreshNormalHeader).setTitle("jiang", .Pulling)
@@ -101,140 +111,156 @@ class JTableViewControllerDemo: UITableViewController {
                 (header as! JRefreshNormalHeader).lastUpdatedTimeLabel.textColor = UIColor.blue
                 header.beginRefreshing()
                 tableView.header = header
-            //MARK: - 自定义下拉视图
+
+                // MARK: - 自定义下拉视图
+
             case 6:
-                tableView.header = JDIYHerader.headerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                tableView.header = JDIYHerader.headerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
                         self.tableView.reloadData()
                         self.tableView.header?.endRefreshing()
-                    })
-                })
+                    }
+                }
                 tableView.header?.beginRefreshing()
             case 7:
-                tableView.header = JRefreshNormalHeader.headerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                tableView.header = JRefreshNormalHeader.headerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
                         self.tableView.reloadData()
                         self.tableView.header?.endRefreshing()
-                    })
-                })
+                    }
+                }
                 (tableView.header as? JRefreshNormalHeader)?.arrowViewNeedCircle = true
                 tableView.header?.beginRefreshing()
             default:
                 break
-                
             }
         case 1:
             switch demoIndex.row {
-            //MARK: - 默认上拉
+                // MARK: - 默认上拉
+
             case 0:
                 count = 10
-                tableView.footer = JRefreshAutoStateFooter.footerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                tableView.footer = JRefreshAutoStateFooter.footerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
                         self.tableView.reloadData()
                         self.tableView.footer?.endRefreshing()
-                    })
-                })
-            //MARK: - 上拉带loading
+                    }
+                }
+
+                // MARK: - 上拉带loading
+
             case 1:
                 count = 10
-                tableView.footer = JRefreshAutoNormalFooter.footerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                tableView.footer = JRefreshAutoNormalFooter.footerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
                         self.tableView.reloadData()
                         self.tableView.footer?.endRefreshing()
-                    })
-                })
-            //MARK: - 静默加载+没有更多了
+                    }
+                }
+
+                // MARK: - 静默加载+没有更多了
+
             case 2:
                 count = 20
-                tableView.footer = JRefreshAutoNormalFooter.footerWithRefreshingBlock({ [weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                tableView.footer = JRefreshAutoNormalFooter.footerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 5
                         self.tableView.reloadData()
                         self.tableView.footer?.endRefreshing()
                         if self.count >= 40 {
                             self.tableView.footer?.endRefreshingWithNoMoreData()
                         }
-                    })
-                })
-                //当底部控件出现多少时就自动刷新 , 实际使用中我们会提前几个cell的高度
+                    }
+                }
+                // 当底部控件出现多少时就自动刷新 , 实际使用中我们会提前几个cell的高度
                 (tableView.footer as? JRefreshAutoNormalFooter)?.triggerAutomaticallyRefreshPercent = -10
-            //MARK: - 上拉Gif
+
+                // MARK: - 上拉Gif
+
             case 3:
-                tableView.footer = JChiBaoZiFooter.footerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                tableView.footer = JChiBaoZiFooter.footerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 5
                         self.tableView.reloadData()
                         self.tableView.footer?.endRefreshing()
                         if self.count >= 40 {
                             self.tableView.footer?.endRefreshingWithNoMoreData()
                         }
-                    })
-                })
-            //MARK: - 上拉Gif(无文字状态)
+                    }
+                }
+
+                // MARK: - 上拉Gif(无文字状态)
+
             case 4:
-                tableView.footer = JChiBaoZiFooter.footerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                tableView.footer = JChiBaoZiFooter.footerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 5
                         self.tableView.reloadData()
                         self.tableView.footer?.endRefreshing()
                         if self.count >= 40 {
                             self.tableView.footer?.endRefreshingWithNoMoreData()
                         }
-                    })
-                })
+                    }
+                }
                 (tableView.footer as? JRefreshAutoGifFooter)?.refreshingTitleHidden = true
-            //MARK: - 上拉,禁止默认自动刷新
+
+                // MARK: - 上拉,禁止默认自动刷新
+
             case 5:
                 count = 10
-                tableView.footer = JRefreshAutoNormalFooter.footerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                tableView.footer = JRefreshAutoNormalFooter.footerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
                         self.tableView.reloadData()
                         self.tableView.footer?.endRefreshing()
-                    })
-                })
+                    }
+                }
                 (tableView.footer as? JRefreshAutoNormalFooter)?.automaticallyRefresh = false
-            //MARK: - 上拉自定义文案
+
+                // MARK: - 上拉自定义文案
+
             case 6:
                 count = 10
-                tableView.footer = JRefreshAutoNormalFooter.footerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                tableView.footer = JRefreshAutoNormalFooter.footerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
                         self.tableView.reloadData()
                         self.tableView.footer?.endRefreshing()
-                    })
-                })
+                    }
+                }
                 (tableView.footer as? JRefreshAutoNormalFooter)?.setTitle("bo", .NoMoreData)
                 (tableView.footer as? JRefreshAutoNormalFooter)?.setTitle("jiang", .Refreshing)
                 (tableView.footer as? JRefreshAutoNormalFooter)?.setTitle("lee", .Idle)
                 (tableView.footer as? JRefreshAutoNormalFooter)?.stateLabel.textColor = UIColor.red
-            //MARK: - 自定义上拉视图
+
+                // MARK: - 自定义上拉视图
+
             case 7:
-                
-                tableView.footer = JDIYAutoFooter.footerWithRefreshingBlock({[weak self] in
-                    guard let `self` = self else {return}
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+
+                tableView.footer = JDIYAutoFooter.footerWithRefreshingBlock { [weak self] in
+                    guard let `self` = self else { return }
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 5
                         self.tableView.reloadData()
                         self.tableView.footer?.endRefreshing()
                         if self.count >= 40 {
                             self.tableView.footer?.endRefreshingWithNoMoreData()
                         }
-                    })
-                })
+                    }
+                }
             default:
                 break
             }
@@ -244,17 +270,15 @@ class JTableViewControllerDemo: UITableViewController {
     }
 
     // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
+    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "JTableViewControllerDemo", for: indexPath)
         cell.textLabel?.text = "demo\(indexPath.row)"
         return cell
     }
- 
-
 }

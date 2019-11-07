@@ -9,11 +9,12 @@
 import UIKit
 
 open class JRefreshFooter: JRefreshComponent {
-    ///忽略多少scrollView的contentInset的bottom
+    /// 忽略多少scrollView的contentInset的bottom
     public var ignoredScrollViewContentInsetBottom: CGFloat = 0
-    //MARK: - 创建footer方法
+
+    // MARK: - 创建footer方法
+
     public class func footerWithRefreshingBlock(_ refreshingBlock: @escaping Block) -> JRefreshFooter {
-        
         let cmp = self.init()
         cmp.refreshingBlock = refreshingBlock
         return cmp
@@ -21,31 +22,25 @@ open class JRefreshFooter: JRefreshComponent {
 }
 
 extension JRefreshFooter {
-    override open func prepare() {
+    open override func prepare() {
         super.prepare()
         // 设置自己的高度
         height = JRefreshConst.footerHeight
     }
 }
-//MARK: - 公共方法
+
+// MARK: - 公共方法
+
 extension JRefreshFooter {
     public func endRefreshingWithNoMoreData() {
-        DispatchQueue.main.async {[weak self] in
+        DispatchQueue.main.async { [weak self] in
             self?.state = .NoMoreData
         }
     }
+
     public func resetNoMoreData() {
-        DispatchQueue.main.async {[weak self] in
+        DispatchQueue.main.async { [weak self] in
             self?.state = .Idle
         }
     }
 }
-
-
-
-
-
-
-
-
-

@@ -9,8 +9,8 @@
 import UIKit
 
 class JDIYAutoFooter: JRefreshAutoFooter {
+    // MARK: - 重写方法
 
-    //MARK: - 重写方法
     lazy var label: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.brown
@@ -19,25 +19,28 @@ class JDIYAutoFooter: JRefreshAutoFooter {
         label.text = "快上拉，看看美女~"
         return label
     }()
+
     lazy var s: UISwitch = {
         let s = UISwitch()
         return s
     }()
+
     lazy var loading: UIActivityIndicatorView = {
         let loading = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
         return loading
     }()
-    
-    //MARK: - 监听控件的刷新状态
+
+    // MARK: - 监听控件的刷新状态
+
     override var state: JRefreshState {
         set(newState) {
             // 状态检查
-            let oldState = self.state
+            let oldState = state
             if oldState == newState {
                 return
             }
             super.state = newState
-            
+
             switch newState {
             case .Idle:
                 loading.stopAnimating()
@@ -60,36 +63,40 @@ class JDIYAutoFooter: JRefreshAutoFooter {
         }
     }
 }
+
 extension JDIYAutoFooter {
-    //MARK: -  在这里做一些初始化配置（比如添加子控件）
+    // MARK: -  在这里做一些初始化配置（比如添加子控件）
+
     override func prepare() {
         super.prepare()
-        
+
         height = 50
         addSubview(label)
         addSubview(s)
         addSubview(loading)
     }
-    //MARK: - 在这里设置子控件的位置和尺寸
+
+    // MARK: - 在这里设置子控件的位置和尺寸
+
     override func placeSubviews() {
         super.placeSubviews()
-        
+
         label.frame = bounds
         s.center = CGPoint(x: 50, y: height * 0.5)
         loading.center = CGPoint(x: bounds.width - 80, y: height * 0.5)
     }
 }
+
 extension JDIYAutoFooter {
-    override func scrollViewPanStateDidChange(_ change: [NSKeyValueChangeKey : Any]?) {
+    override func scrollViewPanStateDidChange(_ change: [NSKeyValueChangeKey: Any]?) {
         super.scrollViewPanStateDidChange(change)
-        
     }
-    override func scrollViewContentSizeDidChange(_ change: [NSKeyValueChangeKey : Any]?) {
+
+    override func scrollViewContentSizeDidChange(_ change: [NSKeyValueChangeKey: Any]?) {
         super.scrollViewContentSizeDidChange(change)
-        
     }
-    override func scrollViewContentOffsetDidChange(_ change: [NSKeyValueChangeKey : Any]?) {
+
+    override func scrollViewContentOffsetDidChange(_ change: [NSKeyValueChangeKey: Any]?) {
         super.scrollViewContentOffsetDidChange(change)
-        
     }
 }

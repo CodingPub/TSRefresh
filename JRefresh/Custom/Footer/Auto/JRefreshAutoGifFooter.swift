@@ -9,31 +9,30 @@
 import UIKit
 
 open class JRefreshAutoGifFooter: JRefreshAutoStateFooter {
-
     lazy var gifView: UIImageView = {
         let gifView = UIImageView()
         return gifView
     }()
-    
+
     lazy var stateImages = [Int: [UIImage]]()
     lazy var stateDurations = [Int: TimeInterval]()
-    
-    override open var state: JRefreshState {
+
+    open override var state: JRefreshState {
         set(newState) {
             // 状态检查
-            let oldState = self.state
+            let oldState = state
             if oldState == newState {
                 return
             }
             super.state = newState
-            
+
             // 根据状态做事情
             if newState == .Refreshing {
                 let image = stateImages[newState.hashValue]
-                guard let images = image, images.count != 0 else {return}
+                guard let images = image, images.count != 0 else { return }
                 gifView.stopAnimating()
                 gifView.isHidden = false
-                if images.count == 1 { //单张图片
+                if images.count == 1 { // 单张图片
                     gifView.image = images.last
                 } else {
                     gifView.animationImages = images
@@ -52,16 +51,17 @@ open class JRefreshAutoGifFooter: JRefreshAutoStateFooter {
 }
 
 extension JRefreshAutoGifFooter {
-    override open func prepare() {
+    open override func prepare() {
         super.prepare()
         addSubview(gifView)
         // 初始化间距
         labelLeftInset = 20
     }
-    override open func placeSubviews() {
+
+    open override func placeSubviews() {
         super.placeSubviews()
-        
-        if gifView.constraints.count > 0 {return}
+
+        if gifView.constraints.count > 0 { return }
         gifView.frame = bounds
         if refreshingTitleHidden {
             gifView.contentMode = .center
@@ -72,9 +72,10 @@ extension JRefreshAutoGifFooter {
     }
 }
 
-//MARK: - 公共方法
+// MARK: - 公共方法
+
 extension JRefreshAutoGifFooter {
-    public func setImages(_ images: Array<UIImage>, _ duration: TimeInterval, _ state: JRefreshState) {
+    public func setImages(_ images: [UIImage], _ duration: TimeInterval, _ state: JRefreshState) {
         stateImages[state.hashValue] = images
         stateDurations[state.hashValue] = duration
         // 根据图片设置控件的高度
@@ -83,7 +84,8 @@ extension JRefreshAutoGifFooter {
             height = image?.size.height ?? 0
         }
     }
-    public func setImages(_ images: Array<UIImage>, _ state: JRefreshState) {
+
+    public func setImages(_ images: [UIImage], _ state: JRefreshState) {
         setImages(images, Double(images.count) * 0.1, state)
     }
 }

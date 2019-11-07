@@ -9,31 +9,32 @@
 import UIKit
 
 open class JRefreshStateHeader: JRefreshHeader {
+    // MARK: - 刷新时间相关
 
-    //MARK: - 刷新时间相关
     /// 利用这个block来决定显示的更新时间文字
     public var lastUpdatedTimeText: ((_ lastUpdatedTime: Date?) -> String)?
     /// 显示上一次刷新时间的label
     public lazy var lastUpdatedTimeLabel: UILabel = {
         let label = UILabel.J_lable()
-        
+
         return label
     }()
-    
-    //MARK: - 状态相关
-    ///文字距离圈圈、箭头的距离
+
+    // MARK: - 状态相关
+
+    /// 文字距离圈圈、箭头的距离
     public var labelLeftInset: CGFloat = 0
-    ///显示刷新状态的label
+    /// 显示刷新状态的label
     public lazy var stateLabel: UILabel = {
         let label = UILabel.J_lable()
-        
+
         return label
     }()
-    
-    ///所有状态对应的文字
+
+    /// 所有状态对应的文字
     lazy var stateTitles = [Int: String]()
-    
-    ///key的处理
+
+    /// key的处理
     override var lastUpdatedTimeKey: String? {
         set(newValue) {
             super.lastUpdatedTimeKey = newValue
@@ -48,12 +49,12 @@ open class JRefreshStateHeader: JRefreshHeader {
                 return
             }
             if lastUpdatedTime != nil {
-                 // 1.获得年月日
+                // 1.获得年月日
                 let calendar = NSCalendar(calendarIdentifier: .gregorian)
                 let cmp1 = calendar?.components([.year, .month, .day, .hour, .minute], from: lastUpdatedTime!)
                 let cmp2 = calendar?.components([.year, .month, .day, .hour, .minute], from: Date())
-                
-                //2.格式化日期
+
+                // 2.格式化日期
                 let formatter = DateFormatter()
                 var isToday = false
                 if cmp1?.day == cmp2?.day {
@@ -65,29 +66,28 @@ open class JRefreshStateHeader: JRefreshHeader {
                     formatter.dateFormat = "yyyy-MM-dd HH:mm"
                 }
                 let time = formatter.string(from: lastUpdatedTime!)
-                
+
                 // 3.显示日期
                 lastUpdatedTimeLabel.text = String(format: "%@%@%@", Bundle.localizedString(JRefreshHead.lastTimeText), isToday ? Bundle.localizedString(JRefreshHead.dateTodayText) : "", time)
             } else {
                 lastUpdatedTimeLabel.text = String(format: "%@%@", Bundle.localizedString(JRefreshHead.lastTimeText), Bundle.localizedString(JRefreshHead.noneLastDateText))
             }
-            
         }
         get {
             return super.lastUpdatedTimeKey
         }
     }
-    
-    override open var state: JRefreshState {
+
+    open override var state: JRefreshState {
         set(newState) {
             // 状态检查
-            let oldState = self.state
+            let oldState = state
             if oldState == newState {
                 return
             }
             super.state = newState
-            
-             // 设置状态文字
+
+            // 设置状态文字
             stateLabel.text = stateTitles[newState.hashValue]
             // 重新设置key（重新显示时间）
             lastUpdatedTimeKey = JRefreshHead.lastUpdateTimeKey
@@ -95,8 +95,8 @@ open class JRefreshStateHeader: JRefreshHeader {
         get {
             return super.state
         }
-    }  
-    
+    }
+
     /// 设置state状态下的文字
     public func setTitle(_ title: String?, _ state: JRefreshState) {
         guard let title = title else { return }
@@ -106,7 +106,7 @@ open class JRefreshStateHeader: JRefreshHeader {
 }
 
 extension JRefreshStateHeader {
-    override open func prepare() {
+    open override func prepare() {
         super.prepare()
         addSubview(lastUpdatedTimeLabel)
         addSubview(stateLabel)
@@ -117,10 +117,10 @@ extension JRefreshStateHeader {
         setTitle(Bundle.localizedString(JRefreshHead.pullingText), .Pulling)
         setTitle(Bundle.localizedString(JRefreshHead.refreshingText), .Refreshing)
     }
-    
-    override open func placeSubviews() {
+
+    open override func placeSubviews() {
         super.placeSubviews()
-        
+
         if stateLabel.isHidden {
             return
         }
@@ -143,21 +143,3 @@ extension JRefreshStateHeader {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -9,30 +9,31 @@
 import UIKit
 
 open class JRefreshAutoStateFooter: JRefreshAutoFooter {
+    // MARK: - 状态相关
 
-    //MARK: - 状态相关
-    ///文字距离圈圈、箭头的距离
+    /// 文字距离圈圈、箭头的距离
     public var labelLeftInset: CGFloat = JRefreshConst.labelLeftInset
-    ///显示刷新状态的label
+    /// 显示刷新状态的label
     public lazy var stateLabel: UILabel = {
         let label = UILabel.J_lable()
         return label
     }()
-    ///隐藏刷新状态的文字
+
+    /// 隐藏刷新状态的文字
     public var refreshingTitleHidden: Bool = false
-    ///所有状态对应的文字
+    /// 所有状态对应的文字
     lazy var stateTitles = [Int: String]()
-    
-    override open var state: JRefreshState {
+
+    open override var state: JRefreshState {
         set(newState) {
             // 状态检查
-            let oldState = self.state
+            let oldState = state
             if oldState == newState {
                 return
             }
             super.state = newState
-            
-            if refreshingTitleHidden && newState == .Refreshing {
+
+            if refreshingTitleHidden, newState == .Refreshing {
                 stateLabel.text = nil
             } else {
                 stateLabel.text = stateTitles[newState.hashValue]
@@ -43,6 +44,7 @@ open class JRefreshAutoStateFooter: JRefreshAutoFooter {
         }
     }
 }
+
 extension JRefreshAutoStateFooter {
     /// 设置state状态下的文字
     public func setTitle(_ title: String?, _ state: JRefreshState) {
@@ -51,24 +53,26 @@ extension JRefreshAutoStateFooter {
         stateLabel.text = stateTitles[state.hashValue]
     }
 }
-//MARK: - 重写父类的方法
+
+// MARK: - 重写父类的方法
+
 extension JRefreshAutoStateFooter {
-    override open func prepare() {
+    open override func prepare() {
         super.prepare()
         addSubview(stateLabel)
         // 初始化文字
         setTitle(Bundle.localizedString(JRefreshAutoFoot.refreshingText), .Refreshing)
         setTitle(Bundle.localizedString(JRefreshAutoFoot.noMoreDataText), .NoMoreData)
         setTitle(Bundle.localizedString(JRefreshAutoFoot.idleText), .Idle)
-        
+
         // 监听label
         stateLabel.isUserInteractionEnabled = true
         stateLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(stateLabelClick)))
     }
-    
-    override open func placeSubviews() {
+
+    open override func placeSubviews() {
         super.placeSubviews()
-        
+
         if stateLabel.constraints.count > 0 {
             return
         }
@@ -76,6 +80,7 @@ extension JRefreshAutoStateFooter {
         stateLabel.frame = bounds
     }
 }
+
 extension JRefreshAutoStateFooter {
     @objc fileprivate func stateLabelClick() {
         if state == .Idle {
@@ -83,11 +88,3 @@ extension JRefreshAutoStateFooter {
         }
     }
 }
-
-
-
-
-
-
-
-

@@ -9,32 +9,32 @@
 import UIKit
 
 open class JRefreshAutoNormalFooter: JRefreshAutoStateFooter {
-
     public var activityIndicatorViewStyle: UIActivityIndicatorView.Style = .gray {
         didSet {
             loadingView.style = activityIndicatorViewStyle
             setNeedsLayout()
         }
     }
+
     public lazy var loadingView: UIActivityIndicatorView = {
         let loadingView = UIActivityIndicatorView(style: .gray)
         loadingView.hidesWhenStopped = true
-        
+
         return loadingView
     }()
-    
-    override open var state: JRefreshState {
+
+    open override var state: JRefreshState {
         set(newState) {
             // 状态检查
-            let oldState = self.state
+            let oldState = state
             if oldState == newState {
                 return
             }
             super.state = newState
-            
+
             if newState == .NoMoreData || newState == .Idle {
                 loadingView.stopAnimating()
-            } else if (state == .Refreshing) {
+            } else if state == .Refreshing {
                 loadingView.startAnimating()
             }
         }
@@ -45,11 +45,12 @@ open class JRefreshAutoNormalFooter: JRefreshAutoStateFooter {
 }
 
 extension JRefreshAutoNormalFooter {
-    override open func prepare() {
+    open override func prepare() {
         super.prepare()
         addSubview(loadingView)
     }
-    override open func placeSubviews() {
+
+    open override func placeSubviews() {
         super.placeSubviews()
         // 圈圈
         var loadingCenterX = width * 0.5
@@ -60,17 +61,3 @@ extension JRefreshAutoNormalFooter {
         loadingView.center = CGPoint(x: loadingCenterX, y: loadingCenterY)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

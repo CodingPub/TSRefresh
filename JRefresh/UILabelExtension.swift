@@ -18,18 +18,18 @@ public extension UILabel {
         label.backgroundColor = UIColor.clear
         return label
     }
-    
+
     func textWidth() -> CGFloat {
         var stringWidth: CGFloat = 0.0
         let size = CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude)
-        //NSAttributedStringKey.font
+        // NSAttributedStringKey.font
         #if swift(>=4.0)
-        let key = NSAttributedString.Key.font
+            let key = NSAttributedString.Key.font
         #else
-        let key = NSFontAttributeName
+            let key = NSFontAttributeName
         #endif
         if text?.count ?? 0 > 0 {
-            stringWidth = (text as NSString?)?.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [key : self.font!], context: nil).width ?? 0
+            stringWidth = (text as NSString?)?.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [key: self.font!], context: nil).width ?? 0
         }
         return stringWidth
     }

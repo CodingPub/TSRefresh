@@ -8,122 +8,112 @@
 
 import UIKit
 
-
 public extension UIScrollView {
-
     var inset: UIEdgeInsets {
-        get {
-            if #available(iOS 11.0, *) {
-                return self.adjustedContentInset
-            } else {
-                return self.contentInset
-            }
+        if #available(iOS 11.0, *) {
+            return self.adjustedContentInset
+        } else {
+            return contentInset
         }
     }
-    
+
     var insetTop: CGFloat {
         set(newTop) {
-            var inset = self.contentInset
+            var inset = contentInset
             inset.top = newTop
             if #available(iOS 11.0, *) {
                 inset.top -= (self.adjustedContentInset.top - self.contentInset.top)
             }
-            self.contentInset = inset
+            contentInset = inset
         }
         get {
             return inset.top
         }
     }
-    
+
     var insetRight: CGFloat {
         set(newRight) {
-            var inset = self.contentInset
+            var inset = contentInset
             inset.right = newRight
             if #available(iOS 11.0, *) {
                 inset.right -= (self.adjustedContentInset.right - self.contentInset.right)
             }
-            self.contentInset = inset
+            contentInset = inset
         }
         get {
             return inset.right
         }
     }
-    
+
     var insetBottom: CGFloat {
         set(newBottom) {
-            var inset = self.contentInset
+            var inset = contentInset
             inset.bottom = newBottom
             if #available(iOS 11.0, *) {
                 inset.bottom -= (self.adjustedContentInset.bottom - self.contentInset.bottom)
             }
-            self.contentInset = inset
+            contentInset = inset
         }
         get {
             return inset.bottom
         }
     }
-    
+
     var insetLeft: CGFloat {
         set(newLeft) {
-            var inset = self.contentInset
+            var inset = contentInset
             inset.left = newLeft
             if #available(iOS 11.0, *) {
                 inset.left -= (self.adjustedContentInset.left - self.contentInset.left)
             }
-            self.contentInset = inset
+            contentInset = inset
         }
         get {
             return inset.left
         }
     }
-    
+
     var offsetX: CGFloat {
         set(newOffsetX) {
-            var offset = self.contentOffset
+            var offset = contentOffset
             offset.x = newOffsetX
-            self.contentOffset = offset
+            contentOffset = offset
         }
         get {
-            return self.contentOffset.x
+            return contentOffset.x
         }
     }
-    
+
     var offsetY: CGFloat {
         set(newOffsetY) {
-            var offset = self.contentOffset
+            var offset = contentOffset
             offset.y = newOffsetY
-            self.contentOffset = offset
+            contentOffset = offset
         }
         get {
-            return self.contentOffset.y
+            return contentOffset.y
         }
     }
-    
+
     var contentW: CGFloat {
         set(newContentW) {
-            var size = self.contentSize
+            var size = contentSize
             size.width = newContentW
-            self.contentSize = size
+            contentSize = size
         }
         get {
-            return self.contentSize.width
+            return contentSize.width
         }
     }
+
     var contentH: CGFloat {
         set(newContentH) {
-            var size = self.contentSize
+            var size = contentSize
             size.height = newContentH
-            self.contentSize = size
+            contentSize = size
         }
         get {
-            return self.contentSize.height
+            return contentSize.height
         }
     }
 }
-
-
-
-
-
-
-
