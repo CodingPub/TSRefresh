@@ -1,6 +1,6 @@
 //
 //  UIScrollViewRefresh.swift
-//  JRefreshExanple
+//  TSRefreshExanple
 //
 //  Created by Lee on 2018/8/21.
 //  Copyright © 2018年 LEE. All rights reserved.
@@ -12,7 +12,7 @@ private var headerKey: UInt8 = 0
 private var footerKey: UInt8 = 0
 
 public extension UIScrollView {
-    var ts_header: JRefreshHeader? {
+    var ts_header: TSRefreshHeader? {
         set(newHeader) {
             if ts_header != newHeader {
                 // 删除旧的，添加新的
@@ -23,11 +23,11 @@ public extension UIScrollView {
             }
         }
         get {
-            return objc_getAssociatedObject(self, &headerKey) as? JRefreshHeader
+            return objc_getAssociatedObject(self, &headerKey) as? TSRefreshHeader
         }
     }
 
-    var ts_footer: JRefreshFooter? {
+    var ts_footer: TSRefreshFooter? {
         set(newFooter) {
             if ts_footer != newFooter {
                 // 删除旧的，添加新的
@@ -38,7 +38,7 @@ public extension UIScrollView {
             }
         }
         get {
-            return objc_getAssociatedObject(self, &footerKey) as? JRefreshFooter
+            return objc_getAssociatedObject(self, &footerKey) as? TSRefreshFooter
         }
     }
 }

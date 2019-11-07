@@ -1,26 +1,26 @@
 //
 //  ViewController.swift
-//  JRefreshExanple
+//  TSRefreshExanple
 //
 //  Created by LEE on 2018/8/18.
 //  Copyright © 2018年 LEE. All rights reserved.
 //
 
 import UIKit
-import JRefresh
+import TSRefresh
 
 class ViewController: UITableViewController {
     var headerArr: Array = ["默认下拉(只有刷新时间、状态)", "下拉带菊花、箭头", "隐藏时间", "GIF 刷新", "隐藏时间和状态", "下拉刷新 自定义文字", "自定义下拉视图", "默认下拉带⭕️动画"]
     var footerArr: Array = ["默认上拉", "上拉带loading", "静默加载+没有更多了", "上拉Gif", "上拉Gif(无文字状态)", "上拉,禁止默认自动刷新", "上拉自定义文案", "自定义上拉视图"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.ts_header = JRefreshNormalHeader.headerWithRefreshingBlock {
+        tableView.ts_header = TSRefreshNormalHeader.headerWithRefreshingBlock {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                 self.tableView.reloadData()
                 self.tableView.ts_header?.endRefreshing()
             }
         }
-        (tableView.ts_header as? JRefreshNormalHeader)?.arrowViewNeedCircle = true
+        (tableView.ts_header as? TSRefreshNormalHeader)?.arrowViewNeedCircle = true
         tableView.ts_header?.beginRefreshing()
     }
 

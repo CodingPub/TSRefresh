@@ -1,6 +1,6 @@
 //
-//  JRefreshAutoGifFooter.swift
-//  JRefreshExanple
+//  TSRefreshAutoGifFooter.swift
+//  TSRefreshExanple
 //
 //  Created by Lee on 2018/8/23.
 //  Copyright © 2018年 LEE. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class JRefreshAutoGifFooter: JRefreshAutoStateFooter {
+open class TSRefreshAutoGifFooter: TSRefreshAutoStateFooter {
     lazy var gifView: UIImageView = {
         let gifView = UIImageView()
         return gifView
@@ -17,7 +17,7 @@ open class JRefreshAutoGifFooter: JRefreshAutoStateFooter {
     lazy var stateImages = [Int: [UIImage]]()
     lazy var stateDurations = [Int: TimeInterval]()
 
-    open override var state: JRefreshState {
+    open override var state: TSRefreshState {
         set(newState) {
             // 状态检查
             let oldState = state
@@ -50,7 +50,7 @@ open class JRefreshAutoGifFooter: JRefreshAutoStateFooter {
     }
 }
 
-extension JRefreshAutoGifFooter {
+extension TSRefreshAutoGifFooter {
     open override func prepare() {
         super.prepare()
         addSubview(gifView)
@@ -74,8 +74,8 @@ extension JRefreshAutoGifFooter {
 
 // MARK: - 公共方法
 
-extension JRefreshAutoGifFooter {
-    public func setImages(_ images: [UIImage], _ duration: TimeInterval, _ state: JRefreshState) {
+extension TSRefreshAutoGifFooter {
+    public func setImages(_ images: [UIImage], _ duration: TimeInterval, _ state: TSRefreshState) {
         stateImages[state.hashValue] = images
         stateDurations[state.hashValue] = duration
         // 根据图片设置控件的高度
@@ -85,7 +85,7 @@ extension JRefreshAutoGifFooter {
         }
     }
 
-    public func setImages(_ images: [UIImage], _ state: JRefreshState) {
+    public func setImages(_ images: [UIImage], _ state: TSRefreshState) {
         setImages(images, Double(images.count) * 0.1, state)
     }
 }

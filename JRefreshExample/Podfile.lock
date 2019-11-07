@@ -1,16 +1,16 @@
 PODS:
-  - JRefresh (1.5.0)
+  - TSRefresh (1.0)
 
 DEPENDENCIES:
-  - JRefresh (from `../`)
+  - TSRefresh (from `../`)
 
 EXTERNAL SOURCES:
-  JRefresh:
+  TSRefresh:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JRefresh: 36f1423193993ad5f8541ed8a62b35ff24954dbe
+  TSRefresh: 36df5a43ba922ab1f86f202ed6738941b9a6fa56
 
-PODFILE CHECKSUM: 59f526dd6f3511e2106c59187443fcd6fee0a506
+PODFILE CHECKSUM: 290083e57ef0270242fadbe3002723a9a82160a2
 
 COCOAPODS: 1.8.3

@@ -1,6 +1,6 @@
 //
-//  JRefreshComponent.swift
-//  JRefreshExanple
+//  TSRefreshComponent.swift
+//  TSRefreshExanple
 //
 //  Created by LEE on 2018/8/18.
 //  Copyright © 2018年 LEE. All rights reserved.
@@ -15,7 +15,7 @@ import UIKit
 /// - Refreshing: 正在刷新中的状态
 /// - WillRefresh:  即将刷新的状态
 /// - NoMoreData: 所有数据加载完毕，没有更多的数据了
-public enum JRefreshState: Int {
+public enum TSRefreshState: Int {
     case Idle = 1
     case Pulling
     case Refreshing
@@ -23,7 +23,7 @@ public enum JRefreshState: Int {
     case NoMoreData
 }
 
-open class JRefreshComponent: UIView {
+open class TSRefreshComponent: UIView {
     public typealias Block = () -> Void
 
     // MARK: - 刷新回调
@@ -47,7 +47,7 @@ open class JRefreshComponent: UIView {
     }
 
     /// 刷新状态 一般交给子类内部实现
-    open var state: JRefreshState {
+    open var state: TSRefreshState {
         didSet {
             // 加入主队列的目的是等setState:方法调用完毕、设置完文字后再去布局子控件
             DispatchQueue.main.async { [weak self] in
@@ -145,12 +145,12 @@ open class JRefreshComponent: UIView {
     }
 }
 
-extension JRefreshComponent {
+extension TSRefreshComponent {
     // MARK: - 刷新状态控制
 
     /// 进入刷新状态
     @objc public func beginRefreshing() {
-        UIView.animate(withDuration: JRefreshConst.fastAnimationDuration) {
+        UIView.animate(withDuration: TSRefreshConst.fastAnimationDuration) {
             self.alpha = 1.0
         }
         pullingPercent = 1.0
@@ -186,7 +186,7 @@ extension JRefreshComponent {
 
 // MARK: - 交给子类们去实现
 
-extension JRefreshComponent {
+extension TSRefreshComponent {
     /// 初始化
     @objc open func prepare() {
         // 基本属性
@@ -209,19 +209,19 @@ extension JRefreshComponent {
 
 // MARK: - KVO监听
 
-extension JRefreshComponent {
+extension TSRefreshComponent {
     func addObservers() {
         let options: NSKeyValueObservingOptions = [.new, .old]
-        scrollView?.addObserver(self, forKeyPath: JRefreshKeyPath.contentOffset, options: options, context: nil)
-        scrollView?.addObserver(self, forKeyPath: JRefreshKeyPath.contentSize, options: options, context: nil)
+        scrollView?.addObserver(self, forKeyPath: TSRefreshKeyPath.contentOffset, options: options, context: nil)
+        scrollView?.addObserver(self, forKeyPath: TSRefreshKeyPath.contentSize, options: options, context: nil)
         pan = scrollView?.panGestureRecognizer
-        pan?.addObserver(self, forKeyPath: JRefreshKeyPath.panState, options: options, context: nil)
+        pan?.addObserver(self, forKeyPath: TSRefreshKeyPath.panState, options: options, context: nil)
     }
 
     func removeObservers() {
-        superview?.removeObserver(self, forKeyPath: JRefreshKeyPath.contentOffset)
-        superview?.removeObserver(self, forKeyPath: JRefreshKeyPath.contentSize)
-        pan?.removeObserver(self, forKeyPath: JRefreshKeyPath.panState)
+        superview?.removeObserver(self, forKeyPath: TSRefreshKeyPath.contentOffset)
+        superview?.removeObserver(self, forKeyPath: TSRefreshKeyPath.contentSize)
+        pan?.removeObserver(self, forKeyPath: TSRefreshKeyPath.panState)
         pan = nil
     }
 
@@ -232,16 +232,16 @@ extension JRefreshComponent {
         }
 
         // 这个就算看不见也需要处理
-        if keyPath == JRefreshKeyPath.contentSize {
+        if keyPath == TSRefreshKeyPath.contentSize {
             scrollViewContentSizeDidChange(change)
         }
         // 看不见
         if isHidden {
             return
         }
-        if keyPath == JRefreshKeyPath.contentOffset {
+        if keyPath == TSRefreshKeyPath.contentOffset {
             scrollViewContentOffsetDidChange(change)
-        } else if keyPath == JRefreshKeyPath.panState {
+        } else if keyPath == TSRefreshKeyPath.panState {
             scrollViewPanStateDidChange(change)
         }
     }
@@ -251,7 +251,7 @@ extension JRefreshComponent {
 
 // MARK: - 设置回调对象和回调方法
 
-extension JRefreshComponent {
+extension TSRefreshComponent {
     /// 设置回调对象和回调方法
     func setRefreshing(_ target: Any?, _ action: Selector?) {
         refreshingTarget = target

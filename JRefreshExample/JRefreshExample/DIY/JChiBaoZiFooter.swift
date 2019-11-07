@@ -1,15 +1,15 @@
 //
 //  JChiBaoZiFooter.swift
-//  JRefreshExanple
+//  TSRefreshExanple
 //
 //  Created by Lee on 2018/8/23.
 //  Copyright © 2018年 LEE. All rights reserved.
 //
 
 import UIKit
-import JRefresh
+import TSRefresh
 
-class JChiBaoZiFooter: JRefreshAutoGifFooter {
+class JChiBaoZiFooter: TSRefreshAutoGifFooter {
     // MARK: - 重写方法-基本设置
 
     override func prepare() {

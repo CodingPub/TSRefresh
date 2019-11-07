@@ -1,6 +1,6 @@
 //
-//  JRefreshAutoFooter.swift
-//  JRefreshExanple
+//  TSRefreshAutoFooter.swift
+//  TSRefreshExanple
 //
 //  Created by Lee on 2018/8/22.
 //  Copyright © 2018年 LEE. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class JRefreshAutoFooter: JRefreshFooter {
+open class TSRefreshAutoFooter: TSRefreshFooter {
     /// 是否自动刷新(默认为YES)
     public var automaticallyRefresh: Bool = true
     /// 当底部控件出现多少时就自动刷新(默认为1.0，也就是底部控件完全出现时，才会自动刷新)
@@ -18,7 +18,7 @@ open class JRefreshAutoFooter: JRefreshFooter {
     /// 一个新的拖拽
     var oneNewPan: Bool = false
 
-    open override var state: JRefreshState {
+    open override var state: TSRefreshState {
         set(newState) {
             // 状态检查
             let oldState = self.state
@@ -60,7 +60,7 @@ open class JRefreshAutoFooter: JRefreshFooter {
     }
 }
 
-extension JRefreshAutoFooter {
+extension TSRefreshAutoFooter {
     open override func prepare() {
         super.prepare()
     }

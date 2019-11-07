@@ -1,6 +1,6 @@
 //
-//  JRefreshNormalHeader.swift
-//  JRefreshExanple
+//  TSRefreshNormalHeader.swift
+//  TSRefreshExanple
 //
 //  Created by Lee on 2018/8/22.
 //  Copyright © 2018年 LEE. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class JRefreshNormalHeader: JRefreshStateHeader {
+open class TSRefreshNormalHeader: TSRefreshStateHeader {
     public var activityIndicatorViewStyle: UIActivityIndicatorView.Style = .gray {
         didSet {
             loadingView.style = activityIndicatorViewStyle
@@ -64,7 +64,7 @@ open class JRefreshNormalHeader: JRefreshStateHeader {
         }
     }
 
-    open override var state: JRefreshState {
+    open override var state: TSRefreshState {
         set(newState) {
             // 状态检查
             let oldState = state
@@ -78,7 +78,7 @@ open class JRefreshNormalHeader: JRefreshStateHeader {
             case .Idle:
                 if oldState == .Refreshing {
                     arrowView.transform = .identity
-                    UIView.animate(withDuration: JRefreshConst.slowAnimationDuration, animations: {
+                    UIView.animate(withDuration: TSRefreshConst.slowAnimationDuration, animations: {
                         self.loadingView.alpha = 0.0
                     }) { _ in
                         // 如果执行完动画发现不是idle状态，就直接返回，进入其他状态
@@ -94,11 +94,11 @@ open class JRefreshNormalHeader: JRefreshStateHeader {
                     arrowView.isHidden = false
                     if arrowViewNeedCircle {
                         circleLayer.isHidden = false
-                        UIView.animate(withDuration: JRefreshConst.fastAnimationDuration) {
+                        UIView.animate(withDuration: TSRefreshConst.fastAnimationDuration) {
                             self.arrowView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
                         }
                     } else {
-                        UIView.animate(withDuration: JRefreshConst.fastAnimationDuration) {
+                        UIView.animate(withDuration: TSRefreshConst.fastAnimationDuration) {
                             self.arrowView.transform = .identity
                         }
                     }
@@ -109,7 +109,7 @@ open class JRefreshNormalHeader: JRefreshStateHeader {
                 if arrowViewNeedCircle {
                     circleLayer.isHidden = false
                 } else {
-                    UIView.animate(withDuration: JRefreshConst.fastAnimationDuration) {
+                    UIView.animate(withDuration: TSRefreshConst.fastAnimationDuration) {
                         self.arrowView.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi))
                     }
                 }
@@ -128,7 +128,7 @@ open class JRefreshNormalHeader: JRefreshStateHeader {
     }
 }
 
-extension JRefreshNormalHeader {
+extension TSRefreshNormalHeader {
     open override func prepare() {
         super.prepare()
         addSubview(arrowView)

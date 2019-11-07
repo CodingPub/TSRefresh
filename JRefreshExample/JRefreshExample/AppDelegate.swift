@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  JRefreshExample
+//  TSRefreshExample
 //
 //  Created by Lee on 2018/8/23.
 //  Copyright © 2018年 Lee. All rights reserved.

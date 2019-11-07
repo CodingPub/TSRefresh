@@ -1,15 +1,15 @@
 //
 //  JDIYHerader.swift
-//  JRefreshExanple
+//  TSRefreshExanple
 //
 //  Created by Lee on 2018/8/23.
 //  Copyright © 2018年 LEE. All rights reserved.
 //
 
 import UIKit
-import JRefresh
+import TSRefresh
 
-class JDIYHerader: JRefreshHeader {
+class JDIYHerader: TSRefreshHeader {
     // MARK: - 重写方法
 
     lazy var label: UILabel = {
@@ -32,7 +32,7 @@ class JDIYHerader: JRefreshHeader {
 
     // MARK: - 监听控件的刷新状态
 
-    override var state: JRefreshState {
+    override var state: TSRefreshState {
         set(newState) {
             // 状态检查
             let oldState = self.state

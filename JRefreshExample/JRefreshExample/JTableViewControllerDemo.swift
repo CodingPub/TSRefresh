@@ -1,13 +1,13 @@
 //
 //  JTableViewControllerDemo.swift
-//  JRefreshExanple
+//  TSRefreshExanple
 //
 //  Created by Lee on 2018/8/22.
 //  Copyright © 2018年 LEE. All rights reserved.
 //
 
 import UIKit
-import JRefresh
+import TSRefresh
 
 class JTableViewControllerDemo: UITableViewController {
     var demoIndex: IndexPath = IndexPath(row: 0, section: 0)
@@ -20,7 +20,7 @@ class JTableViewControllerDemo: UITableViewController {
                 // MARK: - 默认下拉(只有刷新时间、状态)
 
             case 0:
-                tableView.ts_header = JRefreshStateHeader.headerWithRefreshingBlock { [weak self] in
+                tableView.ts_header = TSRefreshStateHeader.headerWithRefreshingBlock { [weak self] in
                     guard let `self` = self else { return }
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
@@ -33,7 +33,7 @@ class JTableViewControllerDemo: UITableViewController {
                 // MARK: - 下拉带菊花、箭头
 
             case 1:
-                tableView.ts_header = JRefreshNormalHeader.headerWithRefreshingBlock { [weak self] in
+                tableView.ts_header = TSRefreshNormalHeader.headerWithRefreshingBlock { [weak self] in
                     guard let `self` = self else { return }
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
@@ -46,7 +46,7 @@ class JTableViewControllerDemo: UITableViewController {
                 // MARK: - 隐藏时间
 
             case 2:
-                let header = JRefreshNormalHeader.headerWithRefreshingBlock { [weak self] in
+                let header = TSRefreshNormalHeader.headerWithRefreshingBlock { [weak self] in
                     guard let `self` = self else { return }
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
@@ -56,7 +56,7 @@ class JTableViewControllerDemo: UITableViewController {
                 }
                 // 设置自动切换透明度(在导航栏下面自动隐藏)
                 header.automaticallyChangeAlpha = true
-                (header as! JRefreshNormalHeader).lastUpdatedTimeLabel.isHidden = true
+                (header as! TSRefreshNormalHeader).lastUpdatedTimeLabel.isHidden = true
                 header.beginRefreshing()
                 tableView.ts_header = header
 
@@ -92,7 +92,7 @@ class JTableViewControllerDemo: UITableViewController {
                 // MARK: - 下拉刷新 自定义文字
 
             case 5:
-                let header = JRefreshNormalHeader.headerWithRefreshingBlock { [weak self] in
+                let header = TSRefreshNormalHeader.headerWithRefreshingBlock { [weak self] in
                     guard let `self` = self else { return }
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
@@ -101,15 +101,15 @@ class JTableViewControllerDemo: UITableViewController {
                     }
                 }
                 // 设置文字
-                (header as! JRefreshNormalHeader).setTitle("lee", .Idle)
-                (header as! JRefreshNormalHeader).setTitle("jiang", .Pulling)
-                (header as! JRefreshNormalHeader).setTitle("bo", .Refreshing)
+                (header as! TSRefreshNormalHeader).setTitle("lee", .Idle)
+                (header as! TSRefreshNormalHeader).setTitle("jiang", .Pulling)
+                (header as! TSRefreshNormalHeader).setTitle("bo", .Refreshing)
                 // 设置字体
-                (header as! JRefreshNormalHeader).stateLabel.font = UIFont.systemFont(ofSize: 16)
-                (header as! JRefreshNormalHeader).lastUpdatedTimeLabel.font = UIFont.systemFont(ofSize: 14)
+                (header as! TSRefreshNormalHeader).stateLabel.font = UIFont.systemFont(ofSize: 16)
+                (header as! TSRefreshNormalHeader).lastUpdatedTimeLabel.font = UIFont.systemFont(ofSize: 14)
                 // 设置颜色
-                (header as! JRefreshNormalHeader).stateLabel.textColor = UIColor.red
-                (header as! JRefreshNormalHeader).lastUpdatedTimeLabel.textColor = UIColor.blue
+                (header as! TSRefreshNormalHeader).stateLabel.textColor = UIColor.red
+                (header as! TSRefreshNormalHeader).lastUpdatedTimeLabel.textColor = UIColor.blue
                 header.beginRefreshing()
                 tableView.ts_header = header
 
@@ -126,7 +126,7 @@ class JTableViewControllerDemo: UITableViewController {
                 }
                 tableView.ts_header?.beginRefreshing()
             case 7:
-                tableView.ts_header = JRefreshNormalHeader.headerWithRefreshingBlock { [weak self] in
+                tableView.ts_header = TSRefreshNormalHeader.headerWithRefreshingBlock { [weak self] in
                     guard let `self` = self else { return }
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
@@ -134,7 +134,7 @@ class JTableViewControllerDemo: UITableViewController {
                         self.tableView.ts_header?.endRefreshing()
                     }
                 }
-                (tableView.ts_header as? JRefreshNormalHeader)?.arrowViewNeedCircle = true
+                (tableView.ts_header as? TSRefreshNormalHeader)?.arrowViewNeedCircle = true
                 tableView.ts_header?.beginRefreshing()
             default:
                 break
@@ -145,7 +145,7 @@ class JTableViewControllerDemo: UITableViewController {
 
             case 0:
                 count = 10
-                tableView.ts_footer = JRefreshAutoStateFooter.footerWithRefreshingBlock { [weak self] in
+                tableView.ts_footer = TSRefreshAutoStateFooter.footerWithRefreshingBlock { [weak self] in
                     guard let `self` = self else { return }
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
@@ -158,7 +158,7 @@ class JTableViewControllerDemo: UITableViewController {
 
             case 1:
                 count = 10
-                tableView.ts_footer = JRefreshAutoNormalFooter.footerWithRefreshingBlock { [weak self] in
+                tableView.ts_footer = TSRefreshAutoNormalFooter.footerWithRefreshingBlock { [weak self] in
                     guard let `self` = self else { return }
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
@@ -171,7 +171,7 @@ class JTableViewControllerDemo: UITableViewController {
 
             case 2:
                 count = 20
-                tableView.ts_footer = JRefreshAutoNormalFooter.footerWithRefreshingBlock { [weak self] in
+                tableView.ts_footer = TSRefreshAutoNormalFooter.footerWithRefreshingBlock { [weak self] in
                     guard let `self` = self else { return }
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 5
@@ -183,7 +183,7 @@ class JTableViewControllerDemo: UITableViewController {
                     }
                 }
                 // 当底部控件出现多少时就自动刷新 , 实际使用中我们会提前几个cell的高度
-                (tableView.ts_footer as? JRefreshAutoNormalFooter)?.triggerAutomaticallyRefreshPercent = -10
+                (tableView.ts_footer as? TSRefreshAutoNormalFooter)?.triggerAutomaticallyRefreshPercent = -10
 
                 // MARK: - 上拉Gif
 
@@ -214,13 +214,13 @@ class JTableViewControllerDemo: UITableViewController {
                         }
                     }
                 }
-                (tableView.ts_footer as? JRefreshAutoGifFooter)?.refreshingTitleHidden = true
+                (tableView.ts_footer as? TSRefreshAutoGifFooter)?.refreshingTitleHidden = true
 
                 // MARK: - 上拉,禁止默认自动刷新
 
             case 5:
                 count = 10
-                tableView.ts_footer = JRefreshAutoNormalFooter.footerWithRefreshingBlock { [weak self] in
+                tableView.ts_footer = TSRefreshAutoNormalFooter.footerWithRefreshingBlock { [weak self] in
                     guard let `self` = self else { return }
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
@@ -228,13 +228,13 @@ class JTableViewControllerDemo: UITableViewController {
                         self.tableView.ts_footer?.endRefreshing()
                     }
                 }
-                (tableView.ts_footer as? JRefreshAutoNormalFooter)?.automaticallyRefresh = false
+                (tableView.ts_footer as? TSRefreshAutoNormalFooter)?.automaticallyRefresh = false
 
                 // MARK: - 上拉自定义文案
 
             case 6:
                 count = 10
-                tableView.ts_footer = JRefreshAutoNormalFooter.footerWithRefreshingBlock { [weak self] in
+                tableView.ts_footer = TSRefreshAutoNormalFooter.footerWithRefreshingBlock { [weak self] in
                     guard let `self` = self else { return }
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                         self.count += 2
@@ -242,10 +242,10 @@ class JTableViewControllerDemo: UITableViewController {
                         self.tableView.ts_footer?.endRefreshing()
                     }
                 }
-                (tableView.ts_footer as? JRefreshAutoNormalFooter)?.setTitle("bo", .NoMoreData)
-                (tableView.ts_footer as? JRefreshAutoNormalFooter)?.setTitle("jiang", .Refreshing)
-                (tableView.ts_footer as? JRefreshAutoNormalFooter)?.setTitle("lee", .Idle)
-                (tableView.ts_footer as? JRefreshAutoNormalFooter)?.stateLabel.textColor = UIColor.red
+                (tableView.ts_footer as? TSRefreshAutoNormalFooter)?.setTitle("bo", .NoMoreData)
+                (tableView.ts_footer as? TSRefreshAutoNormalFooter)?.setTitle("jiang", .Refreshing)
+                (tableView.ts_footer as? TSRefreshAutoNormalFooter)?.setTitle("lee", .Idle)
+                (tableView.ts_footer as? TSRefreshAutoNormalFooter)?.stateLabel.textColor = UIColor.red
 
                 // MARK: - 自定义上拉视图
 

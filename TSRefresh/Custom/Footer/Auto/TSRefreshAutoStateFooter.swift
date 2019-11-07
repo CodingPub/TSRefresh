@@ -1,6 +1,6 @@
 //
-//  JRefreshAutoStateFooter.swift
-//  JRefreshExanple
+//  TSRefreshAutoStateFooter.swift
+//  TSRefreshExanple
 //
 //  Created by Lee on 2018/8/22.
 //  Copyright © 2018年 LEE. All rights reserved.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-open class JRefreshAutoStateFooter: JRefreshAutoFooter {
+open class TSRefreshAutoStateFooter: TSRefreshAutoFooter {
     // MARK: - 状态相关
 
     /// 文字距离圈圈、箭头的距离
-    public var labelLeftInset: CGFloat = JRefreshConst.labelLeftInset
+    public var labelLeftInset: CGFloat = TSRefreshConst.labelLeftInset
     /// 显示刷新状态的label
     public lazy var stateLabel: UILabel = {
         let label = UILabel.ts_lable()
@@ -24,7 +24,7 @@ open class JRefreshAutoStateFooter: JRefreshAutoFooter {
     /// 所有状态对应的文字
     lazy var stateTitles = [Int: String]()
 
-    open override var state: JRefreshState {
+    open override var state: TSRefreshState {
         set(newState) {
             // 状态检查
             let oldState = state
@@ -45,9 +45,9 @@ open class JRefreshAutoStateFooter: JRefreshAutoFooter {
     }
 }
 
-extension JRefreshAutoStateFooter {
+extension TSRefreshAutoStateFooter {
     /// 设置state状态下的文字
-    public func setTitle(_ title: String?, _ state: JRefreshState) {
+    public func setTitle(_ title: String?, _ state: TSRefreshState) {
         guard let title = title else { return }
         stateTitles[state.hashValue] = title
         stateLabel.text = stateTitles[state.hashValue]
@@ -56,14 +56,14 @@ extension JRefreshAutoStateFooter {
 
 // MARK: - 重写父类的方法
 
-extension JRefreshAutoStateFooter {
+extension TSRefreshAutoStateFooter {
     open override func prepare() {
         super.prepare()
         addSubview(stateLabel)
         // 初始化文字
-        setTitle(Bundle.localizedString(JRefreshAutoFoot.refreshingText), .Refreshing)
-        setTitle(Bundle.localizedString(JRefreshAutoFoot.noMoreDataText), .NoMoreData)
-        setTitle(Bundle.localizedString(JRefreshAutoFoot.idleText), .Idle)
+        setTitle(Bundle.localizedString(TSRefreshAutoFoot.refreshingText), .Refreshing)
+        setTitle(Bundle.localizedString(TSRefreshAutoFoot.noMoreDataText), .NoMoreData)
+        setTitle(Bundle.localizedString(TSRefreshAutoFoot.idleText), .Idle)
 
         // 监听label
         stateLabel.isUserInteractionEnabled = true
@@ -81,7 +81,7 @@ extension JRefreshAutoStateFooter {
     }
 }
 
-extension JRefreshAutoStateFooter {
+extension TSRefreshAutoStateFooter {
     @objc fileprivate func stateLabelClick() {
         if state == .Idle {
             beginRefreshing()

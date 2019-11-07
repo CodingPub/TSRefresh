@@ -1,6 +1,6 @@
 //
-//  JRefreshGifHeader.swift
-//  JRefreshExanple
+//  TSRefreshGifHeader.swift
+//  TSRefreshExanple
 //
 //  Created by Lee on 2018/8/22.
 //  Copyright © 2018年 LEE. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class JRefreshGifHeader: JRefreshStateHeader {
+open class TSRefreshGifHeader: TSRefreshStateHeader {
     lazy var gifView: UIImageView = {
         let gifView = UIImageView()
         return gifView
@@ -20,7 +20,7 @@ open class JRefreshGifHeader: JRefreshStateHeader {
     open override var pullingPercent: CGFloat? {
         set(newPullingPercent) {
             super.pullingPercent = newPullingPercent
-            let image = stateImages[JRefreshState.Idle.hashValue]
+            let image = stateImages[TSRefreshState.Idle.hashValue]
             guard let images = image, images.count != 0, state == .Idle else { return }
 
             // 停止动画
@@ -37,7 +37,7 @@ open class JRefreshGifHeader: JRefreshStateHeader {
         }
     }
 
-    open override var state: JRefreshState {
+    open override var state: TSRefreshState {
         set(newState) {
             // 状态检查
             let oldState = state
@@ -70,8 +70,8 @@ open class JRefreshGifHeader: JRefreshStateHeader {
 
 // MARK: - 公共方法
 
-extension JRefreshGifHeader {
-    public func setImages(_ images: [UIImage], _ duration: TimeInterval, _ state: JRefreshState) {
+extension TSRefreshGifHeader {
+    public func setImages(_ images: [UIImage], _ duration: TimeInterval, _ state: TSRefreshState) {
         stateImages[state.hashValue] = images
         stateDurations[state.hashValue] = duration
         // 根据图片设置控件的高度
@@ -81,14 +81,14 @@ extension JRefreshGifHeader {
         }
     }
 
-    public func setImages(_ images: [UIImage], _ state: JRefreshState) {
+    public func setImages(_ images: [UIImage], _ state: TSRefreshState) {
         setImages(images, Double(images.count) * 0.1, state)
     }
 }
 
 // MARK: - 实现父类的方法
 
-extension JRefreshGifHeader {
+extension TSRefreshGifHeader {
     open override func prepare() {
         super.prepare()
 

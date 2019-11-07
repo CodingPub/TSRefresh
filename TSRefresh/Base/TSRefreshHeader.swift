@@ -1,6 +1,6 @@
 //
-//  JRefreshHeader.swift
-//  JRefreshExanple
+//  TSRefreshHeader.swift
+//  TSRefreshExanple
 //
 //  Created by Lee on 2018/8/20.
 //  Copyright © 2018年 LEE. All rights reserved.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-open class JRefreshHeader: JRefreshComponent {
+open class TSRefreshHeader: TSRefreshComponent {
     // MARK: - 创建header方法
 
-    public class func headerWithRefreshingBlock(_ refreshingBlock: @escaping Block) -> JRefreshHeader {
+    public class func headerWithRefreshingBlock(_ refreshingBlock: @escaping Block) -> TSRefreshHeader {
         let cmp = self.init()
         cmp.refreshingBlock = refreshingBlock
         return cmp
@@ -33,7 +33,7 @@ open class JRefreshHeader: JRefreshComponent {
 
     var insetTDelta: CGFloat?
 
-    open override var state: JRefreshState {
+    open override var state: TSRefreshState {
         set(newState) {
             // 状态检查
             let oldState = state
@@ -46,11 +46,11 @@ open class JRefreshHeader: JRefreshComponent {
             if newState == .Idle {
                 if oldState != .Refreshing { return }
                 // 保存刷新时间
-                UserDefaults.standard.set(Date(), forKey: lastUpdatedTimeKey ?? JRefreshHead.lastUpdateTimeKey)
+                UserDefaults.standard.set(Date(), forKey: lastUpdatedTimeKey ?? TSRefreshHead.lastUpdateTimeKey)
                 UserDefaults.standard.synchronize()
 
                 // 恢复inset和offset
-                UIView.animate(withDuration: JRefreshConst.slowAnimationDuration, animations: {
+                UIView.animate(withDuration: TSRefreshConst.slowAnimationDuration, animations: {
                     self.scrollView?.insetTop += self.insetTDelta ?? 0
                     // 自动调整透明度
                     if self.automaticallyChangeAlpha ?? false {
@@ -63,7 +63,7 @@ open class JRefreshHeader: JRefreshComponent {
             } else if newState == .Refreshing {
                 DispatchQueue.main.async { [weak self] in
                     guard let `self` = self, let scrollViewOriginalInset = self.scrollViewOriginalInset, let scrollView = self.scrollView else { return }
-                    UIView.animate(withDuration: JRefreshConst.fastAnimationDuration, animations: {
+                    UIView.animate(withDuration: TSRefreshConst.fastAnimationDuration, animations: {
                         let top = scrollViewOriginalInset.top + self.height
                         // 增加滚动区域top
                         scrollView.insetTop = top
@@ -85,13 +85,13 @@ open class JRefreshHeader: JRefreshComponent {
 
 // MARK: - 覆盖父类的方法
 
-extension JRefreshHeader {
+extension TSRefreshHeader {
     open override func prepare() {
         super.prepare()
         // 设置key
-        lastUpdatedTimeKey = JRefreshHead.lastUpdateTimeKey
+        lastUpdatedTimeKey = TSRefreshHead.lastUpdateTimeKey
         // 设置高度
-        height = JRefreshConst.headerHeight
+        height = TSRefreshConst.headerHeight
     }
 
     open override func placeSubviews() {

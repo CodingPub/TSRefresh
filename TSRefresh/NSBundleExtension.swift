@@ -1,6 +1,6 @@
 //
 //  NSBundleExtension.swift
-//  JRefreshExanple
+//  TSRefreshExanple
 //
 //  Created by Lee on 2018/8/21.
 //  Copyright © 2018年 LEE. All rights reserved.
@@ -11,7 +11,7 @@ import UIKit
 extension Bundle {
     class func refreshBunle() -> Bundle {
         // 这里不使用mainBundle是为了适配pod 1.x和0.x
-        return Bundle(path: Bundle(for: JRefreshComponent.self).path(forResource: "JRefresh", ofType: "bundle")!)!
+        return Bundle(path: Bundle(for: TSRefreshComponent.self).path(forResource: "TSRefresh", ofType: "bundle")!)!
     }
 
     class func arrowImage() -> UIImage {

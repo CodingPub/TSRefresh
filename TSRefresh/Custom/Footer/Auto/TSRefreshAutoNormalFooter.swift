@@ -1,6 +1,6 @@
 //
-//  JRefreshAutoNormalFooter.swift
-//  JRefreshExanple
+//  TSRefreshAutoNormalFooter.swift
+//  TSRefreshExanple
 //
 //  Created by Lee on 2018/8/23.
 //  Copyright © 2018年 LEE. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class JRefreshAutoNormalFooter: JRefreshAutoStateFooter {
+open class TSRefreshAutoNormalFooter: TSRefreshAutoStateFooter {
     public var activityIndicatorViewStyle: UIActivityIndicatorView.Style = .gray {
         didSet {
             loadingView.style = activityIndicatorViewStyle
@@ -23,7 +23,7 @@ open class JRefreshAutoNormalFooter: JRefreshAutoStateFooter {
         return loadingView
     }()
 
-    open override var state: JRefreshState {
+    open override var state: TSRefreshState {
         set(newState) {
             // 状态检查
             let oldState = state
@@ -44,7 +44,7 @@ open class JRefreshAutoNormalFooter: JRefreshAutoStateFooter {
     }
 }
 
-extension JRefreshAutoNormalFooter {
+extension TSRefreshAutoNormalFooter {
     open override func prepare() {
         super.prepare()
         addSubview(loadingView)

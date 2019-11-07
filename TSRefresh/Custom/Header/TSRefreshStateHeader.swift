@@ -1,6 +1,6 @@
 //
-//  JRefreshStateHeader.swift
-//  JRefreshExanple
+//  TSRefreshStateHeader.swift
+//  TSRefreshExanple
 //
 //  Created by Lee on 2018/8/21.
 //  Copyright © 2018年 LEE. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class JRefreshStateHeader: JRefreshHeader {
+open class TSRefreshStateHeader: TSRefreshHeader {
     // MARK: - 刷新时间相关
 
     /// 利用这个block来决定显示的更新时间文字
@@ -68,9 +68,9 @@ open class JRefreshStateHeader: JRefreshHeader {
                 let time = formatter.string(from: lastUpdatedTime!)
 
                 // 3.显示日期
-                lastUpdatedTimeLabel.text = String(format: "%@%@%@", Bundle.localizedString(JRefreshHead.lastTimeText), isToday ? Bundle.localizedString(JRefreshHead.dateTodayText) : "", time)
+                lastUpdatedTimeLabel.text = String(format: "%@%@%@", Bundle.localizedString(TSRefreshHead.lastTimeText), isToday ? Bundle.localizedString(TSRefreshHead.dateTodayText) : "", time)
             } else {
-                lastUpdatedTimeLabel.text = String(format: "%@%@", Bundle.localizedString(JRefreshHead.lastTimeText), Bundle.localizedString(JRefreshHead.noneLastDateText))
+                lastUpdatedTimeLabel.text = String(format: "%@%@", Bundle.localizedString(TSRefreshHead.lastTimeText), Bundle.localizedString(TSRefreshHead.noneLastDateText))
             }
         }
         get {
@@ -78,7 +78,7 @@ open class JRefreshStateHeader: JRefreshHeader {
         }
     }
 
-    open override var state: JRefreshState {
+    open override var state: TSRefreshState {
         set(newState) {
             // 状态检查
             let oldState = state
@@ -90,7 +90,7 @@ open class JRefreshStateHeader: JRefreshHeader {
             // 设置状态文字
             stateLabel.text = stateTitles[newState.hashValue]
             // 重新设置key（重新显示时间）
-            lastUpdatedTimeKey = JRefreshHead.lastUpdateTimeKey
+            lastUpdatedTimeKey = TSRefreshHead.lastUpdateTimeKey
         }
         get {
             return super.state
@@ -98,24 +98,24 @@ open class JRefreshStateHeader: JRefreshHeader {
     }
 
     /// 设置state状态下的文字
-    public func setTitle(_ title: String?, _ state: JRefreshState) {
+    public func setTitle(_ title: String?, _ state: TSRefreshState) {
         guard let title = title else { return }
         stateTitles[state.hashValue] = title
         stateLabel.text = stateTitles[state.hashValue]
     }
 }
 
-extension JRefreshStateHeader {
+extension TSRefreshStateHeader {
     open override func prepare() {
         super.prepare()
         addSubview(lastUpdatedTimeLabel)
         addSubview(stateLabel)
         // 初始化间距
-        labelLeftInset = JRefreshConst.labelLeftInset
+        labelLeftInset = TSRefreshConst.labelLeftInset
         // 初始化文字
-        setTitle(Bundle.localizedString(JRefreshHead.idleText), .Idle)
-        setTitle(Bundle.localizedString(JRefreshHead.pullingText), .Pulling)
-        setTitle(Bundle.localizedString(JRefreshHead.refreshingText), .Refreshing)
+        setTitle(Bundle.localizedString(TSRefreshHead.idleText), .Idle)
+        setTitle(Bundle.localizedString(TSRefreshHead.pullingText), .Pulling)
+        setTitle(Bundle.localizedString(TSRefreshHead.refreshingText), .Refreshing)
     }
 
     open override func placeSubviews() {
