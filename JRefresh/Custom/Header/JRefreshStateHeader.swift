@@ -15,7 +15,7 @@ open class JRefreshStateHeader: JRefreshHeader {
     public var lastUpdatedTimeText: ((_ lastUpdatedTime: Date?) -> String)?
     /// 显示上一次刷新时间的label
     public lazy var lastUpdatedTimeLabel: UILabel = {
-        let label = UILabel.J_lable()
+        let label = UILabel.ts_lable()
 
         return label
     }()
@@ -26,7 +26,7 @@ open class JRefreshStateHeader: JRefreshHeader {
     public var labelLeftInset: CGFloat = 0
     /// 显示刷新状态的label
     public lazy var stateLabel: UILabel = {
-        let label = UILabel.J_lable()
+        let label = UILabel.ts_lable()
 
         return label
     }()

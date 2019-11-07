@@ -12,11 +12,11 @@ private var headerKey: UInt8 = 0
 private var footerKey: UInt8 = 0
 
 public extension UIScrollView {
-    var header: JRefreshHeader? {
+    var ts_header: JRefreshHeader? {
         set(newHeader) {
-            if header != newHeader {
+            if ts_header != newHeader {
                 // 删除旧的，添加新的
-                header?.removeFromSuperview()
+                ts_header?.removeFromSuperview()
                 insertSubview(newHeader!, at: 0)
                 // 存储新的
                 objc_setAssociatedObject(self, &headerKey, newHeader, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
@@ -27,11 +27,11 @@ public extension UIScrollView {
         }
     }
 
-    var footer: JRefreshFooter? {
+    var ts_footer: JRefreshFooter? {
         set(newFooter) {
-            if footer != newFooter {
+            if ts_footer != newFooter {
                 // 删除旧的，添加新的
-                footer?.removeFromSuperview()
+                ts_footer?.removeFromSuperview()
                 insertSubview(newFooter!, at: 0)
                 // 存储新的
                 objc_setAssociatedObject(self, &footerKey, newFooter, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)

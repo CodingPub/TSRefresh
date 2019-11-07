@@ -14,14 +14,14 @@ class ViewController: UITableViewController {
     var footerArr: Array = ["默认上拉", "上拉带loading", "静默加载+没有更多了", "上拉Gif", "上拉Gif(无文字状态)", "上拉,禁止默认自动刷新", "上拉自定义文案", "自定义上拉视图"]
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.header = JRefreshNormalHeader.headerWithRefreshingBlock {
+        tableView.ts_header = JRefreshNormalHeader.headerWithRefreshingBlock {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
                 self.tableView.reloadData()
-                self.tableView.header?.endRefreshing()
+                self.tableView.ts_header?.endRefreshing()
             }
         }
-        (tableView.header as? JRefreshNormalHeader)?.arrowViewNeedCircle = true
-        tableView.header?.beginRefreshing()
+        (tableView.ts_header as? JRefreshNormalHeader)?.arrowViewNeedCircle = true
+        tableView.ts_header?.beginRefreshing()
     }
 
     override func numberOfSections(in _: UITableView) -> Int {

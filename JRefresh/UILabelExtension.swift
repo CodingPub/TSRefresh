@@ -9,7 +9,7 @@
 import UIKit
 
 extension UILabel {
-    class func J_lable() -> UILabel {
+    class func ts_lable() -> UILabel {
         let label = self.init()
         label.font = JRefreshLabelFont
         label.textColor = JRefreshLabelTextColor

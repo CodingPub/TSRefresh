@@ -15,7 +15,7 @@ open class JRefreshAutoStateFooter: JRefreshAutoFooter {
     public var labelLeftInset: CGFloat = JRefreshConst.labelLeftInset
     /// 显示刷新状态的label
     public lazy var stateLabel: UILabel = {
-        let label = UILabel.J_lable()
+        let label = UILabel.ts_lable()
         return label
     }()
 
