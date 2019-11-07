@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JRefresh
 
 class JChiBaoZiFooter: JRefreshAutoGifFooter {
     // MARK: - 重写方法-基本设置

@@ -1,0 +1,16 @@
+PODS:
+  - JRefresh (1.5.0)
+
+DEPENDENCIES:
+  - JRefresh (from `../`)
+
+EXTERNAL SOURCES:
+  JRefresh:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  JRefresh: 36f1423193993ad5f8541ed8a62b35ff24954dbe
+
+PODFILE CHECKSUM: 623d9cb21b9df90bc1019c68cf442cc81f44d57c
+
+COCOAPODS: 1.8.3

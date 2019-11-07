@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct JRefreshConst {
+struct JRefreshConst {
     static let labelLeftInset: CGFloat = 25.0
     static let headerHeight: CGFloat = 54.0
     static let footerHeight: CGFloat = 44.0
@@ -16,14 +16,14 @@ public struct JRefreshConst {
     static let slowAnimationDuration = 0.4
 }
 
-public struct JRefreshKeyPath {
+struct JRefreshKeyPath {
     static let contentOffset = "contentOffset"
     static let contentInset = "contentInset"
     static let contentSize = "contentSize"
     static let panState = "state"
 }
 
-public struct JRefreshHead {
+struct JRefreshHead {
     static let lastUpdateTimeKey = "JRefreshHeaderLastUpdateTimeKey"
     static let idleText = "JRefreshHeaderIdleText"
     static let pullingText = "JRefreshHeaderPullingText"
@@ -34,11 +34,11 @@ public struct JRefreshHead {
     static let noneLastDateText = "JRefreshHeaderNoneLastDateText"
 }
 
-public struct JRefreshAutoFoot {
+struct JRefreshAutoFoot {
     static let idleText = "JRefreshAutoFooterIdleText"
     static let refreshingText = "JRefreshAutoFooterRefreshingText"
     static let noMoreDataText = "JRefreshAutoFooterNoMoreDataText"
 }
 
-public let JRefreshLabelFont = UIFont.boldSystemFont(ofSize: 14)
-public let JRefreshLabelTextColor = UIColor(red: 90.0 / 255.0, green: 90.0 / 255.0, blue: 90.0 / 255.0, alpha: 1.0)
+let JRefreshLabelFont = UIFont.boldSystemFont(ofSize: 14)
+let JRefreshLabelTextColor = UIColor(red: 90.0 / 255.0, green: 90.0 / 255.0, blue: 90.0 / 255.0, alpha: 1.0)

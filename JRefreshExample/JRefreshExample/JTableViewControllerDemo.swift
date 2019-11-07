@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JRefresh
 
 class JTableViewControllerDemo: UITableViewController {
     var demoIndex: IndexPath = IndexPath(row: 0, section: 0)

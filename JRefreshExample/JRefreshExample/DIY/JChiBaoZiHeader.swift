@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JRefresh
 
 class JChiBaoZiHeader: JRefreshGifHeader {
     override func prepare() {

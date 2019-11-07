@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JRefresh
 
 class JDIYAutoFooter: JRefreshAutoFooter {
     // MARK: - 重写方法

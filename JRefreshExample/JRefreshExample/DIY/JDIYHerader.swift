@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JRefresh
 
 class JDIYHerader: JRefreshHeader {
     // MARK: - 重写方法

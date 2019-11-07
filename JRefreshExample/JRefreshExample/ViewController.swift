@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JRefresh
 
 class ViewController: UITableViewController {
     var headerArr: Array = ["默认下拉(只有刷新时间、状态)", "下拉带菊花、箭头", "隐藏时间", "GIF 刷新", "隐藏时间和状态", "下拉刷新 自定义文字", "自定义下拉视图", "默认下拉带⭕️动画"]

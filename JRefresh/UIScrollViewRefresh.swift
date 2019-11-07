@@ -10,6 +10,7 @@ import UIKit
 
 private var headerKey: UInt8 = 0
 private var footerKey: UInt8 = 0
+
 public extension UIScrollView {
     var header: JRefreshHeader? {
         set(newHeader) {
@@ -51,10 +52,6 @@ extension NSObject {
         method_exchangeImplementations(class_getClassMethod(self, method1)!, class_getClassMethod(self, method2)!)
     }
 }
-
-extension UITableView {}
-
-extension UICollectionView {}
 
 extension DispatchQueue {
     private static var onceTracker = [String]()

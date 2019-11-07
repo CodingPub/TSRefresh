@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension UIScrollView {
+extension UIScrollView {
     var inset: UIEdgeInsets {
         if #available(iOS 11.0, *) {
             return self.adjustedContentInset

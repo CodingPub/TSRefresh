@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension Bundle {
+extension Bundle {
     class func refreshBunle() -> Bundle {
         // 这里不使用mainBundle是为了适配pod 1.x和0.x
         return Bundle(path: Bundle(for: JRefreshComponent.self).path(forResource: "JRefresh", ofType: "bundle")!)!

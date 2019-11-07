@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,26 +17,12 @@
 		9B27AFD0212EBDB500C1F04D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B27AFCF212EBDB500C1F04D /* Main.storyboard */; };
 		9B27AFD2212EBDF400C1F04D /* JTableViewControllerDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFD1212EBDF300C1F04D /* JTableViewControllerDemo.swift */; };
 		9B27AFD4212EC6D900C1F04D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFD3212EC6D900C1F04D /* ViewController.swift */; };
-		9B27AFEC212ECA4100C1F04D /* JRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9B27AFD6212ECA4100C1F04D /* JRefresh.bundle */; };
-		9B27AFED212ECA4100C1F04D /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFD7212ECA4100C1F04D /* UILabelExtension.swift */; };
-		9B27AFEE212ECA4100C1F04D /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFD8212ECA4100C1F04D /* UIViewExtension.swift */; };
-		9B27AFEF212ECA4100C1F04D /* UIScrollViewRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFD9212ECA4100C1F04D /* UIScrollViewRefresh.swift */; };
-		9B27AFF0212ECA4100C1F04D /* JRefreshConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFDA212ECA4100C1F04D /* JRefreshConst.swift */; };
-		9B27AFF1212ECA4100C1F04D /* NSBundleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFDB212ECA4100C1F04D /* NSBundleExtension.swift */; };
-		9B27AFF2212ECA4100C1F04D /* UIScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFDC212ECA4100C1F04D /* UIScrollViewExtension.swift */; };
-		9B27AFF3212ECA4100C1F04D /* JRefreshAutoNormalFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFE0212ECA4100C1F04D /* JRefreshAutoNormalFooter.swift */; };
-		9B27AFF4212ECA4100C1F04D /* JRefreshAutoStateFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFE1212ECA4100C1F04D /* JRefreshAutoStateFooter.swift */; };
-		9B27AFF5212ECA4100C1F04D /* JRefreshAutoGifFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFE2212ECA4100C1F04D /* JRefreshAutoGifFooter.swift */; };
-		9B27AFF6212ECA4100C1F04D /* JRefreshNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFE4212ECA4100C1F04D /* JRefreshNormalHeader.swift */; };
-		9B27AFF7212ECA4200C1F04D /* JRefreshStateHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFE5212ECA4100C1F04D /* JRefreshStateHeader.swift */; };
-		9B27AFF8212ECA4200C1F04D /* JRefreshGifHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFE6212ECA4100C1F04D /* JRefreshGifHeader.swift */; };
-		9B27AFF9212ECA4200C1F04D /* JRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFE8212ECA4100C1F04D /* JRefreshHeader.swift */; };
-		9B27AFFA212ECA4200C1F04D /* JRefreshAutoFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFE9212ECA4100C1F04D /* JRefreshAutoFooter.swift */; };
-		9B27AFFB212ECA4200C1F04D /* JRefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFEA212ECA4100C1F04D /* JRefreshComponent.swift */; };
-		9B27AFFC212ECA4200C1F04D /* JRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B27AFEB212ECA4100C1F04D /* JRefreshFooter.swift */; };
+		D00552722373B598009B09B7 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00552712373B598009B09B7 /* UIViewExtension.swift */; };
+		FC5F8D798872CFAB02E0F663 /* Pods_JRefreshExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C050D826AB3238B15FD64CC /* Pods_JRefreshExample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C050D826AB3238B15FD64CC /* Pods_JRefreshExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JRefreshExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B27AF89212EBD6400C1F04D /* JRefreshExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JRefreshExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B27AF8C212EBD6400C1F04D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B27AF93212EBD6600C1F04D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,23 +35,9 @@
 		9B27AFCF212EBDB500C1F04D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9B27AFD1212EBDF300C1F04D /* JTableViewControllerDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTableViewControllerDemo.swift; sourceTree = "<group>"; };
 		9B27AFD3212EC6D900C1F04D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9B27AFD6212ECA4100C1F04D /* JRefresh.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JRefresh.bundle; sourceTree = "<group>"; };
-		9B27AFD7212ECA4100C1F04D /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
-		9B27AFD8212ECA4100C1F04D /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
-		9B27AFD9212ECA4100C1F04D /* UIScrollViewRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewRefresh.swift; sourceTree = "<group>"; };
-		9B27AFDA212ECA4100C1F04D /* JRefreshConst.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRefreshConst.swift; sourceTree = "<group>"; };
-		9B27AFDB212ECA4100C1F04D /* NSBundleExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundleExtension.swift; sourceTree = "<group>"; };
-		9B27AFDC212ECA4100C1F04D /* UIScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtension.swift; sourceTree = "<group>"; };
-		9B27AFE0212ECA4100C1F04D /* JRefreshAutoNormalFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRefreshAutoNormalFooter.swift; sourceTree = "<group>"; };
-		9B27AFE1212ECA4100C1F04D /* JRefreshAutoStateFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRefreshAutoStateFooter.swift; sourceTree = "<group>"; };
-		9B27AFE2212ECA4100C1F04D /* JRefreshAutoGifFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRefreshAutoGifFooter.swift; sourceTree = "<group>"; };
-		9B27AFE4212ECA4100C1F04D /* JRefreshNormalHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRefreshNormalHeader.swift; sourceTree = "<group>"; };
-		9B27AFE5212ECA4100C1F04D /* JRefreshStateHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRefreshStateHeader.swift; sourceTree = "<group>"; };
-		9B27AFE6212ECA4100C1F04D /* JRefreshGifHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRefreshGifHeader.swift; sourceTree = "<group>"; };
-		9B27AFE8212ECA4100C1F04D /* JRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRefreshHeader.swift; sourceTree = "<group>"; };
-		9B27AFE9212ECA4100C1F04D /* JRefreshAutoFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRefreshAutoFooter.swift; sourceTree = "<group>"; };
-		9B27AFEA212ECA4100C1F04D /* JRefreshComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRefreshComponent.swift; sourceTree = "<group>"; };
-		9B27AFEB212ECA4100C1F04D /* JRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JRefreshFooter.swift; sourceTree = "<group>"; };
+		D00552712373B598009B09B7 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		DE5A68EA93F508C9EF516140 /* Pods-JRefreshExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JRefreshExample.debug.xcconfig"; path = "Target Support Files/Pods-JRefreshExample/Pods-JRefreshExample.debug.xcconfig"; sourceTree = "<group>"; };
+		F6BA7C5CB6667B46672999DF /* Pods-JRefreshExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JRefreshExample.release.xcconfig"; path = "Target Support Files/Pods-JRefreshExample/Pods-JRefreshExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,18 +45,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC5F8D798872CFAB02E0F663 /* Pods_JRefreshExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		97379F964D327CC893D08426 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5C050D826AB3238B15FD64CC /* Pods_JRefreshExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9B27AF80212EBD6400C1F04D = {
 			isa = PBXGroup;
 			children = (
-				9B27AFD5212ECA4100C1F04D /* JRefresh */,
 				9B27AF8B212EBD6400C1F04D /* JRefreshExample */,
 				9B27AF8A212EBD6400C1F04D /* Products */,
+				A84230FBB348F8F880A519EF /* Pods */,
+				97379F964D327CC893D08426 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +86,7 @@
 				9B27AFD1212EBDF300C1F04D /* JTableViewControllerDemo.swift */,
 				9B27AFCF212EBDB500C1F04D /* Main.storyboard */,
 				9B27AFC6212EBDA300C1F04D /* DIY */,
+				D00552702373B589009B09B7 /* Common */,
 				9B27AF93212EBD6600C1F04D /* Assets.xcassets */,
 				9B27AF95212EBD6600C1F04D /* LaunchScreen.storyboard */,
 				9B27AF98212EBD6600C1F04D /* Info.plist */,
@@ -122,69 +105,21 @@
 			path = DIY;
 			sourceTree = "<group>";
 		};
-		9B27AFD5212ECA4100C1F04D /* JRefresh */ = {
+		A84230FBB348F8F880A519EF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9B27AFD6212ECA4100C1F04D /* JRefresh.bundle */,
-				9B27AFD7212ECA4100C1F04D /* UILabelExtension.swift */,
-				9B27AFD8212ECA4100C1F04D /* UIViewExtension.swift */,
-				9B27AFD9212ECA4100C1F04D /* UIScrollViewRefresh.swift */,
-				9B27AFDA212ECA4100C1F04D /* JRefreshConst.swift */,
-				9B27AFDB212ECA4100C1F04D /* NSBundleExtension.swift */,
-				9B27AFDC212ECA4100C1F04D /* UIScrollViewExtension.swift */,
-				9B27AFDD212ECA4100C1F04D /* Custom */,
-				9B27AFE7212ECA4100C1F04D /* Base */,
+				DE5A68EA93F508C9EF516140 /* Pods-JRefreshExample.debug.xcconfig */,
+				F6BA7C5CB6667B46672999DF /* Pods-JRefreshExample.release.xcconfig */,
 			);
-			name = JRefresh;
-			path = ../JRefresh;
+			path = Pods;
 			sourceTree = "<group>";
 		};
-		9B27AFDD212ECA4100C1F04D /* Custom */ = {
+		D00552702373B589009B09B7 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				9B27AFDE212ECA4100C1F04D /* Footer */,
-				9B27AFE3212ECA4100C1F04D /* Header */,
+				D00552712373B598009B09B7 /* UIViewExtension.swift */,
 			);
-			path = Custom;
-			sourceTree = "<group>";
-		};
-		9B27AFDE212ECA4100C1F04D /* Footer */ = {
-			isa = PBXGroup;
-			children = (
-				9B27AFDF212ECA4100C1F04D /* Auto */,
-			);
-			path = Footer;
-			sourceTree = "<group>";
-		};
-		9B27AFDF212ECA4100C1F04D /* Auto */ = {
-			isa = PBXGroup;
-			children = (
-				9B27AFE0212ECA4100C1F04D /* JRefreshAutoNormalFooter.swift */,
-				9B27AFE1212ECA4100C1F04D /* JRefreshAutoStateFooter.swift */,
-				9B27AFE2212ECA4100C1F04D /* JRefreshAutoGifFooter.swift */,
-			);
-			path = Auto;
-			sourceTree = "<group>";
-		};
-		9B27AFE3212ECA4100C1F04D /* Header */ = {
-			isa = PBXGroup;
-			children = (
-				9B27AFE4212ECA4100C1F04D /* JRefreshNormalHeader.swift */,
-				9B27AFE5212ECA4100C1F04D /* JRefreshStateHeader.swift */,
-				9B27AFE6212ECA4100C1F04D /* JRefreshGifHeader.swift */,
-			);
-			path = Header;
-			sourceTree = "<group>";
-		};
-		9B27AFE7212ECA4100C1F04D /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				9B27AFE8212ECA4100C1F04D /* JRefreshHeader.swift */,
-				9B27AFE9212ECA4100C1F04D /* JRefreshAutoFooter.swift */,
-				9B27AFEA212ECA4100C1F04D /* JRefreshComponent.swift */,
-				9B27AFEB212ECA4100C1F04D /* JRefreshFooter.swift */,
-			);
-			path = Base;
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,9 +129,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9B27AF9B212EBD6600C1F04D /* Build configuration list for PBXNativeTarget "JRefreshExample" */;
 			buildPhases = (
+				F9D2E51C5E863FA4F6C2657B /* [CP] Check Pods Manifest.lock */,
 				9B27AF85212EBD6400C1F04D /* Sources */,
 				9B27AF86212EBD6400C1F04D /* Frameworks */,
 				9B27AF87212EBD6400C1F04D /* Resources */,
+				8D4ED0A762F5DDE612792BED /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,7 +183,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B27AFEC212ECA4100C1F04D /* JRefresh.bundle in Resources */,
 				9B27AF97212EBD6600C1F04D /* LaunchScreen.storyboard in Resources */,
 				9B27AF94212EBD6600C1F04D /* Assets.xcassets in Resources */,
 				9B27AFD0212EBDB500C1F04D /* Main.storyboard in Resources */,
@@ -255,34 +191,61 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8D4ED0A762F5DDE612792BED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JRefreshExample/Pods-JRefreshExample-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JRefreshExample/Pods-JRefreshExample-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JRefreshExample/Pods-JRefreshExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9D2E51C5E863FA4F6C2657B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JRefreshExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9B27AF85212EBD6400C1F04D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B27AFF0212ECA4100C1F04D /* JRefreshConst.swift in Sources */,
 				9B27AFCD212EBDA300C1F04D /* JChiBaoZiHeader.swift in Sources */,
-				9B27AFF4212ECA4100C1F04D /* JRefreshAutoStateFooter.swift in Sources */,
 				9B27AFCB212EBDA300C1F04D /* JChiBaoZiFooter.swift in Sources */,
 				9B27AFD4212EC6D900C1F04D /* ViewController.swift in Sources */,
-				9B27AFEF212ECA4100C1F04D /* UIScrollViewRefresh.swift in Sources */,
 				9B27AFCE212EBDA300C1F04D /* JDIYHerader.swift in Sources */,
-				9B27AFFA212ECA4200C1F04D /* JRefreshAutoFooter.swift in Sources */,
-				9B27AFF1212ECA4100C1F04D /* NSBundleExtension.swift in Sources */,
-				9B27AFED212ECA4100C1F04D /* UILabelExtension.swift in Sources */,
-				9B27AFF6212ECA4100C1F04D /* JRefreshNormalHeader.swift in Sources */,
-				9B27AFF8212ECA4200C1F04D /* JRefreshGifHeader.swift in Sources */,
 				9B27AFD2212EBDF400C1F04D /* JTableViewControllerDemo.swift in Sources */,
-				9B27AFEE212ECA4100C1F04D /* UIViewExtension.swift in Sources */,
-				9B27AFF9212ECA4200C1F04D /* JRefreshHeader.swift in Sources */,
-				9B27AFF2212ECA4100C1F04D /* UIScrollViewExtension.swift in Sources */,
-				9B27AFFB212ECA4200C1F04D /* JRefreshComponent.swift in Sources */,
-				9B27AFFC212ECA4200C1F04D /* JRefreshFooter.swift in Sources */,
-				9B27AFF7212ECA4200C1F04D /* JRefreshStateHeader.swift in Sources */,
 				9B27AF8D212EBD6400C1F04D /* AppDelegate.swift in Sources */,
-				9B27AFF5212ECA4100C1F04D /* JRefreshAutoGifFooter.swift in Sources */,
+				D00552722373B598009B09B7 /* UIViewExtension.swift in Sources */,
 				9B27AFCC212EBDA300C1F04D /* JDIYAutoFooter.swift in Sources */,
-				9B27AFF3212ECA4100C1F04D /* JRefreshAutoNormalFooter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +379,7 @@
 		};
 		9B27AF9C212EBD6600C1F04D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE5A68EA93F508C9EF516140 /* Pods-JRefreshExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -434,6 +398,7 @@
 		};
 		9B27AF9D212EBD6600C1F04D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6BA7C5CB6667B46672999DF /* Pods-JRefreshExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
